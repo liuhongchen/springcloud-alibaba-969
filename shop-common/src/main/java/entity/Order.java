@@ -1,0 +1,35 @@
+package entity;
+
+import lombok.Data;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+/**
+ * ClassName:Order
+ * Package:entity
+ * Description:
+ *
+ * @date: 2021-04-02 09:46
+ * @author:Hansing liuhongchengege123@gmail.com
+ */
+//订单
+@Entity(name = "shop_order")
+@Data
+public class Order {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long oid;//订单id
+    private Integer uid;//用户id private String username;//用户名
+    private Integer pid;//商品id private String pname;//商品名称 private Double pprice;//商品单价
+    private Integer number;//购买数量
+
+    private String username;
+    private String pname;
+    private Double pprice;
+
+
+}
