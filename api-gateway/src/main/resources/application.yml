@@ -1,0 +1,13 @@
+server:
+  port: 7000
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: server.liuhongchen.com:28848
+    gateway:
+      discovery:
+        locator:
+          enabled: true
