@@ -1,5 +1,5 @@
 server:
-  port: 8091
+  port: 8092
 spring:
   application:
     name: service-order
@@ -17,4 +17,12 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 192.168.1.180:28848
+        server-addr: server.liuhongchen.com:28848
+    sentinel:
+      transport:
+        port: 9999 #跟控制台交流的端口,随意指定一个未使用的端口即可
+        dashboard: server.liuhongchen.com:8858
+        clientIp: 192.168.1.151
+feign:
+  sentinel:
+    enabled: true
