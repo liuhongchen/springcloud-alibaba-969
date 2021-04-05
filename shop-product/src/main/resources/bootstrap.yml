@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: service-product
+  cloud:
+    nacos:
+      config:
+        server-addr: server.liuhongchen.com:28848 #nacos中心地址
+        file-extension: yaml # 配置文件格式
+        shared-dataids: all-service.yaml
+        refreshable-dataids: all-service.yaml
+  profiles:
+    active: dev

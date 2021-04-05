@@ -3,6 +3,7 @@ package com.liuhongchen;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 /**
  * ClassName:com.liuhongchen.UserAppliacation
@@ -13,9 +14,8 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
  * @author:Hansing liuhongchengege123@gmail.com
  */
 @SpringBootApplication
-//@EnableDiscoveryClient
+@EnableDiscoveryClient
 @EntityScan("entity")
-
 public class UserApplication {
 
     public static void main(String[] args) {

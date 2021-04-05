@@ -6,6 +6,7 @@ import com.liuhongchen.service.ProductService;
 import entity.Order;
 import entity.Product;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.rocketmq.spring.core.RocketMQTemplate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,12 +32,13 @@ import org.springframework.web.client.RestTemplate;
 public class OrderController {
 
     @Autowired
-    private RestTemplate restTemplate;
-    @Autowired
     private OrderService orderService;
 
     @Autowired
     private ProductService productService;
+
+    @Autowired
+    private RocketMQTemplate rocketMQTemplate;
 
     //准备买1件商品
     @GetMapping("/order/prod/{pid}")
@@ -61,11 +63,7 @@ public class OrderController {
 
         orderService.save(order);
 
-        try {
-            Thread.sleep(100);
-        }catch (InterruptedException e){
-            e.printStackTrace();
-        }
+        rocketMQTemplate.convertAndSend("order-topic",order);
 
         return order;
     }
